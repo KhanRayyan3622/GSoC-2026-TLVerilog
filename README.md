@@ -1,5 +1,3 @@
-mkdir -p ~/gsoc/gsoc-hub
-cat > ~/gsoc/gsoc-hub/README.md << 'EOF'
 # GSoC 2026 — Using AI to Improve Open-Source IP
 
 **Contributor:** Muhammad Rayyan Khan  
@@ -58,4 +56,3 @@ formal equivalence verification (EQY + SymbiYosys) at every step.
 - **Steve Hoover** — TL-Verilog creator, mentor, conversion recipe author
 - **Ha Le Van Thien** — Conversion Console, model comparison experiments, oversight judge, prompt caching
 - **Arya K. Sekhar Das** — VS Code extension, n8n workflow automation
-EOF
