@@ -20,8 +20,9 @@ formal equivalence verification (EQY + SymbiYosys) at every step.
 
 | PR | Description | Status |
 |---|---|---|
-| [#21](https://github.com/stevehoover/LLM_TLV/pull/21) | Generic convert.sh wrapper for non-interactive conversion | Open |
-| [#20](https://github.com/stevehoover/LLM_TLV/pull/20) | FEV failure patterns, stage alignment guidance, counter example | Open |
+| [#21](https://github.com/stevehoover/LLM_TLV/pull/21) | Generic `convert.sh` wrapper for non-interactive conversion | Open |
+| [#22](https://github.com/stevehoover/LLM_TLV/pull/22) | Stage/transaction alignment and FEV failure/output-remapping guidance | Open |
+| [#23](https://github.com/stevehoover/LLM_TLV/pull/23) | Clarify clock-bridge timing for registered TL-Verilog signals | Open |
 
 ### Module Conversions
 
@@ -47,7 +48,7 @@ formal equivalence verification (EQY + SymbiYosys) at every step.
 
 1. **Stage alignment** — EQY match lines for TLV pipesignals require explicit `<>0` suffix
 2. **Registered output conflict** — Outputs that are also flip-flops create EQY partition conflicts; keep flop gold-named in `\SV_plus`
-3. **Silent config.json failure** — Malformed config.json causes fev.sh to skip non-default FEV configs silently
+3. **FEV configuration validation** — Malformed `M5_configs` can cause configuration coverage problems; upstream `fev.sh` has since been updated to fail loudly rather than silently degrade.
 4. **Async reset is a structural limit** — TLV is synchronous only; modules with async reset need `\SV_plus` for the flops
 5. **Cost routing** — Per-task routing with escalation: ~60¢ vs $8.22 monolithic (Ha's finding)
 
