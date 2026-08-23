@@ -31,9 +31,18 @@ formal equivalence verification (EQY + SymbiYosys) at every step.
 | [stevehoover/SERV](https://github.com/KhanRayyan3622/stevehoover-serv) | serv_state_cleanroom (34 checkpoints, 6 FEV configs), serv_alu, serv_bufreg, serv_bufreg2 | FEV verified |
 | [Cores-VeeR-EL2](https://github.com/KhanRayyan3622/Cores-VeeR-EL2) | dmi_mux (full), el2_prim_generic_buf (full), dmi_jtag_to_core_sync (partial) | FEV verified / documented |
 | [Cores-VeeR-EH1](https://github.com/KhanRayyan3622/Cores-VeeR-EH1) | dmi_jtag_to_core_sync (partial), dec_gpr_ctl, dec_trigger | FEV verified / documented |
-| [kronos](https://github.com/KhanRayyan3622/kronos) | input_debouncer (in progress) | In progress |
+| [kronos](https://github.com/KhanRayyan3622/kronos) | input_debouncer | FEV verified across 3 configs |
 | [ibex](https://github.com/KhanRayyan3622/ibex) | ibex_register_file_ff (partial) | Documented |
 | [scr1](https://github.com/KhanRayyan3622/scr1) | scr1_tapc_shift_reg (partial) | Documented |
+
+### Conversion Infrastructure
+
+| Item | Description |
+|---|---|
+| `convert.sh` | Generic non-interactive Verilog → TL-Verilog conversion wrapper for project/module pairs |
+| Conversion Atlas | Used for checkpointed conversion workflows and tracking |
+| FEV/EQY verification | Formal equivalence verification used throughout completed conversions |
+| Failure documentation | Reusable guidance for stage alignment, output remapping, partition conflicts, and FEV failures |
 
 ### Other Deliverables
 
@@ -48,7 +57,7 @@ formal equivalence verification (EQY + SymbiYosys) at every step.
 
 1. **Stage alignment** — EQY match lines for TLV pipesignals require explicit `<>0` suffix
 2. **Registered output conflict** — Outputs that are also flip-flops create EQY partition conflicts; keep flop gold-named in `\SV_plus`
-3. **FEV configuration validation** — Malformed `M5_configs` can cause configuration coverage problems; upstream `fev.sh` has since been updated to fail loudly rather than silently degrade.
+3. 3. **FEV configuration validation** — Malformed `M5_configs` can cause configuration coverage problems; this led to stronger validation in `fev.sh`, which now fails loudly rather than silently degrading.
 4. **Async reset is a structural limit** — TLV is synchronous only; modules with async reset need `\SV_plus` for the flops
 5. **Cost routing** — Per-task routing with escalation: ~60¢ vs $8.22 monolithic (Ha's finding)
 
