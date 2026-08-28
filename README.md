@@ -29,7 +29,7 @@ formal equivalence verification (EQY + SymbiYosys) at every step.
 | Repo | Modules Converted | Status |
 |---|---|---|
 | [stevehoover/SERV](https://github.com/KhanRayyan3622/stevehoover-serv) | serv_state_cleanroom (34 checkpoints, 6 FEV configs), serv_alu, serv_bufreg, serv_bufreg2 | FEV verified |
-| [SERV_Modules](https://github.com/KhanRayyan3622/serv_modules) | serv_state_cleanroom (34 checkpoints, 6 FEV configs), serv_alu, serv_bufreg, serv_bufreg2, serv_ctrl, serv_immdec, serv_mem_if, serv_state | FEV verified |
+| [SERV_Modules](https://github.com/KhanRayyan3622/serv_modules) | serv_alu, serv_bufreg, serv_bufreg2, serv_ctrl, serv_immdec, serv_mem_if, serv_state | FEV verified |
 | [Cores-VeeR-EL2](https://github.com/KhanRayyan3622/Cores-VeeR-EL2) | dmi_mux (full), el2_prim_generic_buf (full), dmi_jtag_to_core_sync (partial) | FEV verified / documented |
 | [Cores-VeeR-EH1](https://github.com/KhanRayyan3622/Cores-VeeR-EH1) | dmi_jtag_to_core_sync (partial), dec_gpr_ctl, dec_trigger | FEV verified / documented |
 | [kronos](https://github.com/KhanRayyan3622/kronos) | input_debouncer | FEV verified across 3 configs |
